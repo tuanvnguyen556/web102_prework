@@ -179,3 +179,12 @@ const runnerGameElement = document.createElement('p');
 runnerGameElement.innerHTML = secondGame.name;
 secondGameContainer.append(runnerGameElement);
 console.log(secondGame.name);
+
+//Search Feature
+function searchGameName(phrase) {
+    deleteChildElements(gamesContainer);
+    const filteredGames = GAMES_JSON.filter((game) => game.name.toLowerCase().includes(phrase));
+    addGamesToPage(filteredGames);
+}
+let inputElement = document.getElementById('search');
+inputElement.addEventListener('input', (event) => {searchGameName(event.target.value)});
